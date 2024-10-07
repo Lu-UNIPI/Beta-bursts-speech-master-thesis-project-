@@ -1,7 +1,6 @@
 close all;clear all;clc;
 %%
 PATH_DATA='Z:\DBS';
-% PATH_POW='Y:\...\04_Time-freq analysis\annot\general CTAR\';
 
 DATE=datestr(now,'yyyymmdd');
 format long
@@ -28,24 +27,24 @@ for i=ii
     disp(strcat('Now running i= ',string(i),'   aka: ',SUBJECT))
     row_freq=1;row_prob=1;row_dur=1; row_volt=1;
     row_rdsym=1; row_ptsym=1; row_pow=1;  
-    PATH_ANNOT=strcat(PATH_DATA, filesep, SUBJECT, filesep, 'Preprocessed data\Sync\annot');
-    PATH_SIGNAL=strcat(PATH_DATA, filesep, SUBJECT, filesep, 'Preprocessed data\FieldTrip\');
+    PATH_ANNOT=strcat(PATH_DATA, ...\annot');
+    PATH_SIGNAL=strcat(PATH_DATA, ...\FieldTrip');
 
     % take sessions with DBS LFP data
-    session=bml_annot_read(strcat(PATH_ANNOT,filesep,SUBJECT,'_session'));
+    session=bml_annot_read(strcat(PATH_ANNOT,...,'_session'));
     id_session=session.id(strcmpi(session.type, 'LEAD'));
 
     % upload useful annot tables
-    coding=bml_annot_read(strcat(PATH_ANNOT,filesep,SUBJECT,'_coding')); coding=coding(coding.session_id==id_session,:);
-    cue=bml_annot_read(strcat(PATH_ANNOT,filesep,SUBJECT,'_cue_precise')); cue=cue(cue.session_id==id_session, :);
-    prod_triplet=bml_annot_read(strcat(PATH_ANNOT,filesep,SUBJECT,'_produced_triplet'));prod_triplet=prod_triplet(prod_triplet.session_id==id_session,:);
-    electrode=bml_annot_read(strcat(PATH_ANNOT,filesep,SUBJECT,'_electrode'));
+    coding=bml_annot_read(strcat(PATH_ANNOT,...,'_coding')); coding=coding(coding.session_id==id_session,:);
+    cue=bml_annot_read(strcat(PATH_ANNOT,...,'_cue_precise')); cue=cue(cue.session_id==id_session, :);
+    prod_triplet=bml_annot_read(strcat(PATH_ANNOT,...,'_produced_triplet'));prod_triplet=prod_triplet(prod_triplet.session_id==id_session,:);
+    electrode=bml_annot_read(strcat(PATH_ANNOT,...,'_electrode'));
     electrode=electrode(:, {'id', 'starts','ends','duration','electrode','connector','port','HCPMMP1_label_1','HCPMMP1_weight_1'});
 
-    telldata=bml_annot_read(strcat(PATH_ANNOT,filesep,SUBJECT,'_produced_triplet_tellfeatures')); 
+    telldata=bml_annot_read(strcat(PATH_ANNOT,...,'_produced_triplet_tellfeatures')); 
     telldata=telldata(telldata.session_id==id_session,{'id','starts','ends','trial_id','shimmer_mean','shimmer_stddev','jitter_mean','jitter_stddev','x__speechrate'});
     
-    load(fullfile(PATH_SIGNAL,'LFP beta burst',SUBJECT+"_clean_syl.mat"));
+    load(fullfile(PATH_SIGNAL,...,"_clean_syl.mat"));
 
     cfg=[];
     cfg.decodingtype='basic';   % 'basic', 'bysubject', 'weight'
@@ -128,7 +127,6 @@ for i=ii
     cfg.method  = 'CTAR';   % using trimmed average referencing
     cfg.percent = 50;       % percentage of 'extreme' channels in group to trim
     ECOG=bml_rereference(cfg,ECOG);
-    % save(fullfile(PATH_SIGNAL,'LFP beta burst',SUBJECT+"_rebound_clean_ref_globt.mat"), 'E_ctar')
     
 
     % dbs
