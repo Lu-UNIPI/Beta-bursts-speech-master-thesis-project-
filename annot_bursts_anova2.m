@@ -1,7 +1,7 @@
 close all;clear all;clc;
 %%
 PATH_DATA='Z:\DBS';
-% PATH_POW='Y:\Users\LP244\2024-03-11 beta burst proj\Beta proj safe\MATLAB_2024-03-12\04_Time-freq analysis\annot\general CTAR\';
+% PATH_POW='Y:\...\04_Time-freq analysis\annot\general CTAR\';
 
 DATE=datestr(now,'yyyymmdd');
 format long
@@ -19,7 +19,7 @@ n_sub_PD_DBS=arrayfun(@(x) sprintf('%04d', x), n_sub_PD_DBS, 'UniformOutput', fa
 SUBJECTS=n_sub_PD_DBS;
 
 %% 
-ii=13;%14:numel(SUBJECTS);
+ii=1:numel(SUBJECTS);
 
 for i=ii
     %open a subject dir
