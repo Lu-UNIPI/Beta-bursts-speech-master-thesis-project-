@@ -16,10 +16,11 @@ Before running the project, ensure you have the following installed:
 - Bycycle wrap for python
 
 Structure of the project:
- -  1_preprocessing/                   
- -  2_timefrquency_analysis/            
- -  3_bursting_detection/ 
- -  4_beta_bursts_speech/ 
- -  5_beta_speech_metrics/  
+ -  1_data_overview/   
+ -  2_preprocessing/                   
+ -  3_timefrquency_analysis/            
+ -  4_bursting_detection/ 
+ -  5_beta_bursts_speech/ 
+ -  6_beta_speech_metrics/  
 
 Author: Lucia Poma
