@@ -17,11 +17,10 @@ Before running the project, ensure you have the following installed:
 
 Structure of the project:
 project/
-│
 ├── 1_preprocessing/                   
 ├── 2_timefrquency_analysis/            
 ├── 3_bursting_detection/ 
 ├── 4_beta_bursts_speech/ 
-└── 4_beta_speech_metrics/  
+└── 5_beta_speech_metrics/  
 
 Author: Lucia Poma
