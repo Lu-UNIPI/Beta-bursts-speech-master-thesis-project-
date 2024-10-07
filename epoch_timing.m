@@ -67,8 +67,5 @@ disp('Median tot A:   '+string(median(toplot_A,'omitnan')))
 disp('Median tot B:   '+string(median(toplot_B,'omitnan')))
 
 diary off
-%% definitions
-% BASELINE -1s stim1_start
-% REBOUND -300ms offset_syl3 +700ms
 
 
