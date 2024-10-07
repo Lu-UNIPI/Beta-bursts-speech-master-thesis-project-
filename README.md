@@ -1,4 +1,4 @@
-# Beta-bursts-speech-master-thesis-project-
+# Beta-bursts-speech-master-thesis-project
 Master thesis in Bionics Engineering, curriculum Neural Engineering
 
 Title: 
