@@ -2,12 +2,10 @@ close all;clear all;clc;
 %% 
 %%% this script get raw data and 
 % 1) select session id with DBS LFP data
-% 2) preprocess (then epoched and SAVE)
-% 3) epoch and save both globt and lockt
-%    syl1, stim1, baseline and rebound
-% 4) filter out artifact from annot  
-% 5) CTAR
-% 6) ft
+% 2) preprocess 
+% 3) epoch
+% 4) filter out artifact from annot 
+% 5) save
 
 PATH_DATA='Z:\DBS';
 DATE=datestr(now,'yyyymmdd');
@@ -114,19 +112,6 @@ for i=14%1:numel(SUBJECTS)
     E=bml_mask(cfg,Ebase);
     E=consolidate(E,Ebase);
     
-%     a=0;
-%     % remove channels when too artifacted
-%     for chan=1:length(E.label)
-%         alldata=cell(1,length(E.trial));
-%         for trial=1:numel(E.trial)
-%             alldata{trial}=E.trial{trial}(chan,:);
-%         end
-%         alldata=cell2mat(alldata');
-%         if sum(isnan(alldata),'all')/numel(alldata)>0.3
-%             a=a+1;
-%             for trial=1:numel(E.trial);E.trial{trial}(chan,:)=nan(size(E.trial{trial}(chan,:)));end
-%         end
-%     end
      end
     
     %% SAVE 
