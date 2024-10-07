@@ -58,8 +58,6 @@ title('Distribution of timing between trials for PD with DBS data')
 disp('Total median:   '+string(median(toplot,'omitnan')))
 disp('Total trials:   '+string(sum(cellfun(@(x) x,n_trials))))
 diary off
-%% definitions
-% BASELINE -1s stim1_start
-% REBOUND -300ms offset_syl3 +700ms
+
 
 
