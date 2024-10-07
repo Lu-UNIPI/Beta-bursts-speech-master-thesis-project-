@@ -114,17 +114,3 @@ for i=1:numel(SUBJECTS)
         area.(label_area)=area.(label_area)+1;
     end
 end
-
-%%
-for a=1:(numel(unique(tab.area))+1)   
-    if a==1
-        area_label='dbs';
-        color=[1,0.95,1];
-    else
-        area_short=unique()
-        area_label=tab.area_fullname(strcmp(tab.area,tab.area(a)));area_label=string(area_label(1));
-        color=tab.color(strcmp(tab.area,tab.area(a)));color=string(color(1));
-    end
-    histogram()
-end
-histogram()
